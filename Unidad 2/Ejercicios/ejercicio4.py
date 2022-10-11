@@ -53,16 +53,6 @@ def leerficheroseri():
             except EOFError:
                 break
 
-def añadirEdicion():
-    anio = input("Introduce el año de la olimpiada")
-    juegos = input(print("Introduce los juegos"))
-    temporada = input("Introduce la temporada de la olimpiada")
-    ciudad = input("Introduce la ciudad de la olimpiada")
-    olimpiadanueva = Olimpiada(anio, juegos, temporada, ciudad)
-    with open("olimpiadas.pickle", "ab") as f:
-        pickle.dump(olimpiadanueva, f)
-    mostrarmenu()
-
 def añadirEdicionOrdenado():
     anio = input("Introduce el año de la olimpiada")
     juegos = input("Introduce los juegos")
@@ -81,11 +71,9 @@ def añadirEdicionOrdenado():
                 listaolimpOrdenada.append(olimpiada)
             except EOFError:
                 break
-    print(listaolimpOrdenada)
     with open("olimpiadas.pickle", "wb") as f:
         for olim in listaolimpOrdenada:
             pickle.dump(olim, f)
-    leerficheroseri()
     mostrarmenu()
 
 
